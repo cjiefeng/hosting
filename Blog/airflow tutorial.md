@@ -11,7 +11,7 @@ A finite directed graph with no cycles. There is not path that exist where u sta
 
 Notice in `Graph 2`, v3 -> v5 -> v6 -> v3 -> ... formed a cycle, this is a counter example of a DAG.
 
-In Airflow, all workflows are DAG. Each vertex represents a task. This task could be perform any task such as executing bash scripts, python functions, updating database data etc.
+In Airflow, all workflows are DAG. Each vertex represents a task. This task could be perform anything such as executing bash scripts, python functions, updating database data etc.
 
 ##  Installation
 1. Let's get started. First, set a home directory for Airflow. I've set it as airflow/ in the current directory. It defaults to `~/airflow`.
@@ -126,25 +126,27 @@ opr_sleep_strict >> opr_respond
   ![simple_dag diagram](https://raw.githubusercontent.com/cjiefeng/hosting/master/Project%20Images/DAG.png)
 
 ## Airflow UI
-Going back to our webserver `localhost:8080` using default port, let's search for our DAG. If you have not disabled `load_examples` in `airflow.cfg` you might need to search for our DAG id (from step 3 above) from the top right hand corner.
+Going back to our webserver `localhost:8080` using default port, let's search for our DAG.
 
+- If you have not disabled `load_examples` in `airflow.cfg`, you might need to search for our DAG id (from step 3 above) from the top right hand corner.
 ![airflow webpage](https://raw.githubusercontent.com/cjiefeng/hosting/master/Blog%20Images/airflow%20webpage.png)
+<br/>
 
-We can pause/unpause our DAG by using the toggle buttone beside the DAG id. We can also manually trigger DAG using the action buttons.
-
-![DAG toggle](https://raw.githubusercontent.com/cjiefeng/hosting/master/Blog%20Images/DAG%20toggle.png)
+- We can pause/unpause our DAG by using the toggle buttone beside the DAG id. We can also manually trigger DAG using the action buttons.
+![DAG toggle](https://raw.githubusercontent.com/cjiefeng/hosting/master/Blog%20Images/DAG%20toggle.png) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ![DAG actions](https://raw.githubusercontent.com/cjiefeng/hosting/master/Blog%20Images/DAG%20action.png)
+<br/>
 
-Clicking on the DAG id allows us to see more information about the DAG. Personally I feel that the `Tree View` is confusing so I will skip it for now and go into `Graph View`.
-
+- Clicking on the DAG id allows us to see more information about the DAG. Personally I feel that the `Tree View` is confusing so I will skip it for now and go into `Graph View`.
 ![DAG Graph View](https://raw.githubusercontent.com/cjiefeng/hosting/master/Blog%20Images/DAG%20graph%20view.png)
+<br/>
 
-Each vertex can tell us what has happened and the status of the task. By cliking on them, we can also see the output logs.
+- Each vertex can tell us what has happened and the status of the task. By cliking on them, we can also see the respective output logs.
 
-Recall that `def timing()` is set to fail when `minute==0`, here we can see that `sh_sleep` was executed as its `trigger_rule='all_done'`. On the flip side, take a look at `sh_sleep_strict` which was not executed because its prior job has failed.
+- Recall that `def timing()` is set to fail when `minute==0`. From the above DAG, we can see that `sh_sleep` was executed as its `trigger_rule='all_done'`. On the flip side, take a look at `sh_sleep_strict` which was not executed because its prior job has failed.
 
 ## Conclusion
-Hopefully this has scratched the surface of Apache Airflow for you, it has definitely done so for me. I will continue to explore and perhaps use it for other complicated projects if needed.
+Hopefully this has scratched the surface of Apache Airflow for you, it has definitely done so for me. I will continue to explore and perhaps use it for complicated projects.
 
 [Link](https://github.com/cjiefeng/airflow-tutorial) to my github is here for this short tutorial.
 
