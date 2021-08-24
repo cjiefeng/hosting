@@ -129,17 +129,17 @@ opr_sleep_strict >> opr_respond
 Going back to our webserver `localhost:8080` using default port, let's search for our DAG.
 
 - If you have not disabled `load_examples` in `airflow.cfg`, you might need to search for our DAG id (from step 3 above) from the top right hand corner.
+
 ![airflow webpage](https://raw.githubusercontent.com/cjiefeng/hosting/master/Blog%20Images/airflow%20webpage.png)
-<br/>
 
 - We can pause/unpause our DAG by using the toggle buttone beside the DAG id. We can also manually trigger DAG using the action buttons.
+
 ![DAG toggle](https://raw.githubusercontent.com/cjiefeng/hosting/master/Blog%20Images/DAG%20toggle.png) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ![DAG actions](https://raw.githubusercontent.com/cjiefeng/hosting/master/Blog%20Images/DAG%20action.png)
-<br/>
 
 - Clicking on the DAG id allows us to see more information about the DAG. Personally I feel that the `Tree View` is confusing so I will skip it for now and go into `Graph View`.
+
 ![DAG Graph View](https://raw.githubusercontent.com/cjiefeng/hosting/master/Blog%20Images/DAG%20graph%20view.png)
-<br/>
 
 - Each vertex can tell us what has happened and the status of the task. By cliking on them, we can also see the respective output logs.
 
